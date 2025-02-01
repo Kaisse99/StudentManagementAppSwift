@@ -18,6 +18,11 @@ class StudentManager {
             return
         }
         
+        if students.contains(where: {$0.id == id}) {
+            print("Student with such ID already exists, enter unique ID.")
+            return
+        }
+        
         print("Enter student's name:", terminator: " ")
         guard let inputName = readLine(), !inputName.isEmpty else {
             print("No name provided. Returning to menu.")
