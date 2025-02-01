@@ -4,7 +4,6 @@
 //
 //  Created by Mykyta Varnikov on 2025-01-24.
 //
-
 import Foundation
 
 func menu(){
@@ -17,24 +16,32 @@ func menu(){
     print("=====================================")
 }
 
-var students: [Student] = []
+let manager = StudentManager()
 
 menu()
-guard let input = readLine(), let choice = Int(input) else {
-    print("No input...")
-    exit(0)
-}
-switch (choice) {
-case 1:
-    
-case 2:
-    print("you pickeed 2")
-case 3:
-    print("you pickeed 3")
-case 4:
-    print("you pickeed 4")
-case 5:
-    print("you pickeed 5")
-default:
-    print("Wrong Input, Try again")
+while true {
+    print("Enter your choice:", terminator: " ")
+    guard let input = readLine(), let choice = Int(input) else {
+        print("Invalid or no input detected, try again.")
+        continue
+    }
+
+    switch (choice) {
+    case 1:
+        print("Adding a Student")
+        manager.addStudent()
+    case 2:
+        print("Viewing All Students")
+        manager.viewAllStudents()
+    case 3:
+        print("you pickeed 3")
+    case 4:
+        print("you pickeed 4")
+    case 5:
+        print("Closing a program, goodbye!")
+        sleep(3)
+        exit(0)
+    default:
+        print("Wrong choice, try again.")
+    }
 }
