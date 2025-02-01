@@ -59,4 +59,30 @@ class StudentManager {
         }
     }
     
+     func averageGrade(){
+        print("Enter a Student ID: ", terminator: " ")
+        guard let inputIdSeek = readLine(), let idSeek = Int(inputIdSeek) else {
+            print("Wrong or no input provided. Returning to menu.")
+            return
+        }
+         
+        var foundStatus = false
+         
+        for student in students {
+            if idSeek == student.id {
+                foundStatus = true
+                var sum : Double = 0.0
+                for grade in student.grades {
+                    sum += grade
+                }
+                var averageGrade = sum / Double(student.grades.count)
+                print("Average grade for \(student.name) \(student.id) is: \(averageGrade)")
+                break
+            }
+        }
+         if foundStatus == false {
+             print("No student found with ID: \(idSeek)")
+         }
+    }
+    
 }

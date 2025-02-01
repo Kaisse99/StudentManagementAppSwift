@@ -34,7 +34,8 @@ while true {
         print("Viewing All Students")
         manager.viewAllStudents()
     case 3:
-        print("you pickeed 3")
+        print("Calculate Average Grade")
+        manager.averageGrade()
     case 4:
         print("you pickeed 4")
     case 5:
