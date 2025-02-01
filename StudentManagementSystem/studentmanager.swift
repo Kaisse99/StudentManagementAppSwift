@@ -19,18 +19,28 @@ class StudentManager {
         }
         
         print("Enter student's name:", terminator: " ")
-        guard let inputName = readLine() else {
-            print("Invalid Name. Returning to menu.")
+        guard let inputName = readLine(), !inputName.isEmpty else {
+            print("No name provided. Returning to menu.")
             return
         }
         
         print("Enter a student's grades separated by space", terminator: " ")
-        guard let inputGrades = readLine() else {
-            print("Invalid input. Returning to menu.")
+        guard let inputGrades = readLine(), !inputGrades.isEmpty else {
+            print("No input provided input. Returning to menu.")
             return
         }
         
-        let gradesArray = inputGrades.split(separator: " ").compactMap { Double($0) }
+        let gradesArray = inputGrades.split(separator: " ").compactMap {
+            if let grade = Double($0), grade >= 0 && grade <= 100 {
+                return grade
+            }
+            return nil
+        }
+        
+        if gradesArray.isEmpty {
+            print("No valid grades has been entered. Returning to menu")
+            return
+        }
         
         let student = Student(id: id, name: inputName, grades: gradesArray)
         
