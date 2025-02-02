@@ -37,10 +37,11 @@ while true {
         print("Calculate Average Grade")
         manager.averageGrade()
     case 4:
-        print("you pickeed 4")
+        print("Passing/Failing Students")
+        manager.passingStudents()
     case 5:
         print("Closing a program, goodbye!")
-        sleep(3)
+        sleep(3) 
         exit(0)
     default:
         print("Wrong choice, try again.")

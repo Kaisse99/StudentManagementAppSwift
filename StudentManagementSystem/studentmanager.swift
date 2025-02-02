@@ -90,4 +90,34 @@ class StudentManager {
          }
     }
     
+    func passingStudents() {
+        var passingStudents : [Student] = []
+        var failingStudents : [Student] = []
+        print("Enter a grade threshold | 0 - 100", terminator: " ")
+        guard let inputThreshold = readLine(), let threshold = Double(inputThreshold), threshold <= 100 && threshold >= 0 else {
+            print("Wrong or no input, enter 0 - 100.")
+            return
+        }
+        var sum : Double = 0.0
+        for student in students {
+            for grade in student.grades{
+                sum += grade
+            }
+            var averageGrade = sum / Double(student.grades.count)
+            if averageGrade >= threshold {
+                passingStudents.append(student)
+            } else {
+                failingStudents.append(student)
+            }
+        }
+        print("+++++List Of Passing Studens+++++")
+        for student in passingStudents {
+            print("ID: \(student.id) | Name: \(student.name) | Grades: \(student.grades)")
+        }
+        print("-----List Of Failing Studens-----")
+        for student in failingStudents {
+            print("ID: \(student.id) | Name: \(student.name) | Grades: \(student.grades)")
+        }
+    }
+    
 }

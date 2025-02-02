@@ -8,6 +8,7 @@
 import Foundation
 
 class Student {
+    
     var id : Int = 0
     var name : String = ""
     var grades : [Double] = []
