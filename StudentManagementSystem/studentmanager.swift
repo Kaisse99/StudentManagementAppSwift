@@ -1,7 +1,7 @@
 //
 //  studentmanager.swift
 //  StudentManagementSystem
-//
+//  991701116
 //  Created by Mykyta Varnikov on 2025-02-01.
 //
 
@@ -98,8 +98,9 @@ class StudentManager {
             print("Wrong or no input, enter 0 - 100.")
             return
         }
-        var sum : Double = 0.0
+        
         for student in students {
+            var sum : Double = 0.0
             for grade in student.grades{
                 sum += grade
             }
